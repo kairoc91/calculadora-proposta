@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de Proposta Imobiliária</title>
+</head>
+<body>
+  <h1>Calculadora de Proposta Imobiliária</h1>
+
+  <form id="proposta-form">
+    <fieldset>
+      <legend>Dados Principais</legend>
+
+      <p>
+        <label for="valorTotal">Valor Total do Imóvel (R$):</label><br>
+        <input type="number" id="valorTotal" name="valorTotal" step="0.01" min="0.01" required>
+      </p>
+
+      <p>
+        <label for="valorEntrada">Valor de Entrada (R$):</label><br>
+        <input type="number" id="valorEntrada" name="valorEntrada" step="0.01" min="0" value="0">
+      </p>
+
+      <p>
+        <label for="valorSinal">Valor de Sinal (R$):</label><br>
+        <input type="number" id="valorSinal" name="valorSinal" step="0.01" min="0" value="0">
+      </p>
+
+      <p>
+        <label for="valorChaves">Valor nas Chaves (R$):</label><br>
+        <input type="number" id="valorChaves" name="valorChaves" step="0.01" min="0" value="0">
+      </p>
+    </fieldset>
+
+    <fieldset>
+      <legend>Parcelamento</legend>
+
+      <p>
+        <label for="tipoParcelamento">Periodicidade:</label><br>
+        <select id="tipoParcelamento" name="tipoParcelamento">
+          <option value="mensal">Mensal</option>
+          <option value="trimestral">Trimestral</option>
+          <option value="semestral">Semestral</option>
+          <option value="anual">Anual</option>
+        </select>
+      </p>
+
+      <p>
+        <label for="quantidadeParcelas">Quantidade de Parcelas:</label><br>
+        <input type="number" id="quantidadeParcelas" name="quantidadeParcelas" min="1" step="1" value="1">
+      </p>
+    </fieldset>
+
+    <p>
+      <button type="submit">Calcular Proposta</button>
+      <button type="reset">Limpar</button>
+    </p>
+  </form>
+
+  <hr>
+
+  <h2>Resultado</h2>
+  <div id="resultado">
+    <p>Preencha os campos e clique em <strong>Calcular Proposta</strong>.</p>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
+
