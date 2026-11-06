@@ -9,62 +9,66 @@
 
   <form id="proposta-form">
     <fieldset>
-      <legend>Dados Principais</legend>
+      <legend>Valores e Datas Principais</legend>
 
       <p>
         <label for="valorTotal">Valor Total do Imóvel (R$):</label><br>
-        <input type="number" id="valorTotal" name="valorTotal" step="0.01" min="0.01" required>
-      </p>
-
-      <p>
-        <label for="valorEntrada">Valor de Entrada (R$):</label><br>
-        <input type="number" id="valorEntrada" name="valorEntrada" step="0.01" min="0" value="0">
+        <input type="number" id="valorTotal" name="valorTotal" step="0.01" min="0.01" required placeholder="Ex: 500000">
       </p>
 
       <p>
         <label for="valorSinal">Valor de Sinal (R$):</label><br>
         <input type="number" id="valorSinal" name="valorSinal" step="0.01" min="0" value="0">
+        <label for="dataSinal">Data do Sinal:</label>
+        <input type="date" id="dataSinal" name="dataSinal">
+      </p>
+
+      <p>
+        <label for="valorEntrada">Valor de Entrada (R$):</label><br>
+        <input type="number" id="valorEntrada" name="valorEntrada" step="0.01" min="0" value="0">
+        <label for="dataEntrada">Data da Entrada:</label>
+        <input type="date" id="dataEntrada" name="dataEntrada">
       </p>
 
       <p>
         <label for="valorChaves">Valor nas Chaves (R$):</label><br>
         <input type="number" id="valorChaves" name="valorChaves" step="0.01" min="0" value="0">
+        <label for="dataChaves">Vencimento das Chaves:</label>
+        <input type="date" id="dataChaves" name="dataChaves">
+      </p>
+
+      <p>
+        <label>
+          <input type="checkbox" id="incluirChavesNoCalculo" checked>
+          Incluir parcela das chaves no cálculo do total "até as chaves"
+        </label>
       </p>
     </fieldset>
 
     <fieldset>
-      <legend>Parcelamento</legend>
+      <legend>Modalidades de Parcelamento</legend>
+
+      <div id="modalidades-container">
+        <!-- Linhas dinâmicas -->
+      </div>
 
       <p>
-        <label for="tipoParcelamento">Periodicidade:</label><br>
-        <select id="tipoParcelamento" name="tipoParcelamento">
-          <option value="mensal">Mensal</option>
-          <option value="trimestral">Trimestral</option>
-          <option value="semestral">Semestral</option>
-          <option value="anual">Anual</option>
-        </select>
-      </p>
-
-      <p>
-        <label for="quantidadeParcelas">Quantidade de Parcelas:</label><br>
-        <input type="number" id="quantidadeParcelas" name="quantidadeParcelas" min="1" step="1" value="1">
+        <button type="button" id="btn-adicionar-modalidade">+ Adicionar Modalidade (Mensal, Semestral, Anual...)</button>
       </p>
     </fieldset>
 
     <p>
-      <button type="submit">Calcular Proposta</button>
-      <button type="reset">Limpar</button>
+      <button type="reset" id="btn-limpar">Limpar Tudo</button>
     </p>
   </form>
 
   <hr>
 
-  <h2>Resultado</h2>
+  <h2>Resultado em Tempo Real</h2>
   <div id="resultado">
-    <p>Preencha os campos e clique em <strong>Calcular Proposta</strong>.</p>
+    <p>Informe o valor total do imóvel para calcular a proposta em tempo real.</p>
   </div>
 
   <script type="module" src="./app.js"></script>
 </body>
 </html>
-
