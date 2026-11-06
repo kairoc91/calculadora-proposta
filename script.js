@@ -1,14 +1,15 @@
-const valorImovel = 500000;
-const valorCUB = 3182.95;
-
-export function convertToCents(value) {
-    let cents = value * 100;
-    return cents;
+export function convertToCents(decimalValue) {
+    return Math.round(decimalValue * 100);
 }
 
 export function convertToCub(imovel, cub) {
-    let convert = convertToCents(imovel) / convertToCents(cub);
-    return convert;
+    return imovel / cub;
 }
 
-console.log(convertToCub(valorImovel, valorCUB).toFixed(6));
+export function calculate(imovel, cub) {
+    let convertImovel = convertToCents(imovel);
+    let convertCub = convertToCents(cub);
+    let equivalenciaCub = convertImovel / convertCub;
+
+    return equivalenciaCub;
+}
