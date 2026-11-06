@@ -2,14 +2,19 @@ export function convertToCents(decimalValue) {
     return Math.round(decimalValue * 100);
 }
 
-export function convertToCub(imovel, cub) {
-    return imovel / cub;
+export function convertToCub(valorTotal, cub) {
+    return valorTotal / cub;
 }
 
-export function calculate(imovel, cub) {
-    let convertImovel = convertToCents(imovel);
-    let convertCub = convertToCents(cub);
-    let equivalenciaCub = convertImovel / convertCub;
+export function calculaProposta(valorTotal, valorEntrada, quantidadeParcela) {
+    const saldo = valorTotal - valorEntrada;
+    const valorParcela = saldo / quantidadeParcela;
 
-    return equivalenciaCub;
+    return {
+        valorTotal,
+        valorEntrada,
+        saldo,
+        quantidadeParcela,
+        valorParcela
+    };
 }
